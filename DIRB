@@ -1,0 +1,57 @@
+DIRB
+Web content scanner for hidden directories and files
+
+Web Application
+Description
+DIRB is a web content scanner that looks for existing web objects by launching a dictionary-based attack against a web server. It finds hidden directories, backup files, and other sensitive content.
+
+Installation / Check
+Check if installed:
+
+which dirb
+Install command:
+
+sudo apt install dirb
+Basic Syntax
+dirb <url> [wordlist]
+Common Commands
+Command	What it does	When to use	Risk
+dirb http://192.168.1.1
+
+Basic scan with default wordlist	Quick discovery of common directories	
+dirb http://192.168.1.1 /usr/share/wordlists/dirb/big.txt
+
+Scan with larger wordlist	More thorough directory discovery	
+dirb http://192.168.1.1 -o results.txt
+
+Save results to file	For documentation and later review	
+dirb http://192.168.1.1 -a "Mozilla/5.0"
+
+Custom user agent	To avoid detection by user-agent filters	
+dirb http://192.168.1.1 -X .php,.html,.txt
+
+Search specific extensions	Finding files with specific extensions	
+Step-by-Step Guide
+1
+Identify target web server
+2
+Run basic scan: dirb http://target
+3
+Wait for scan completion
+4
+Review found directories
+5
+Investigate interesting paths
+6
+Try with different wordlists for better coverage
+Understanding the Output
+DIRB shows discovered URLs with their response codes. CODE:200 means found, CODE:403 means forbidden (exists but access denied).
+
+Important Warnings
+•
+Only scan websites you own or have permission to test
+•
+Scans generate lots of web server logs
+•
+May trigger WAF or IDS alerts
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
