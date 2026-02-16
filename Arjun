@@ -1,0 +1,55 @@
+Arjun
+HTTP parameter discovery tool
+
+Web Application
+Description
+Arjun finds hidden HTTP parameters in web applications. It uses a huge default dictionary and smart techniques to discover parameters not visible in the UI.
+
+Installation / Check
+Check if installed:
+
+which arjun
+Install command:
+
+pip install arjun
+Basic Syntax
+arjun -u <url>
+Common Commands
+Command	What it does	When to use	Risk
+arjun -u http://target.com/page
+
+Discover parameters	Find hidden params	
+arjun -u http://target.com/page -m POST
+
+POST parameters	Test POST requests	
+arjun -u http://target.com/page -m JSON
+
+JSON parameters	Test JSON bodies	
+arjun -u http://target.com/page -w custom.txt
+
+Custom wordlist	Use specific params	
+arjun -i urls.txt
+
+Multiple URLs	Batch testing	
+Step-by-Step Guide
+1
+Identify target endpoint
+2
+Run arjun
+3
+Review discovered parameters
+4
+Test each for vulnerabilities
+5
+Use with sqlmap/xsstrike
+Understanding the Output
+Lists discovered parameters with their detected type (GET/POST/JSON).
+
+Important Warnings
+•
+Can generate many requests
+•
+May trigger WAF
+•
+Use on authorized targets only
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
