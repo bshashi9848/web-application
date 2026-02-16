@@ -1,0 +1,55 @@
+FFUF
+Fast web fuzzer written in Go
+
+Web Application
+Description
+FFUF (Fuzz Faster U Fool) is an extremely fast web fuzzer written in Go. It can fuzz various parts of HTTP requests including URLs, headers, and POST data.
+
+Installation / Check
+Check if installed:
+
+which ffuf
+Install command:
+
+sudo apt install ffuf
+Basic Syntax
+ffuf -w <wordlist> -u <url/FUZZ>
+Common Commands
+Command	What it does	When to use	Risk
+ffuf -w /usr/share/wordlists/dirb/common.txt -u http://target/FUZZ
+
+Directory fuzzing	Fast directory discovery	
+ffuf -w wordlist.txt -u http://target/FUZZ -e .php,.html
+
+Fuzz with extensions	Finding files with specific extensions	
+ffuf -w wordlist.txt -u http://target -H "Host: FUZZ.target.com"
+
+Virtual host discovery	Finding subdomains on same IP	
+ffuf -w wordlist.txt -u http://target/api?param=FUZZ
+
+Parameter fuzzing	Testing API parameters	
+ffuf -w wordlist.txt -u http://target/FUZZ -mc 200,301,302
+
+Filter by status codes	Only show specific response codes	
+Step-by-Step Guide
+1
+Prepare wordlist for fuzzing
+2
+Identify fuzz point in URL (use FUZZ keyword)
+3
+Run ffuf with appropriate options
+4
+Filter results by size, status, or words
+5
+Investigate interesting findings
+Understanding the Output
+Output shows: URL, Status code, Size, Words, Lines. Green results typically indicate found resources.
+
+Important Warnings
+•
+Very fast tool - can overwhelm servers
+•
+Only fuzz authorized targets
+•
+Monitor for rate limiting
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
