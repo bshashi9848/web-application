@@ -1,0 +1,56 @@
+DirBuster
+Multi-threaded GUI web directory brute-forcer
+
+Web Application
+Description
+DirBuster is a multi-threaded Java application designed to brute force directories and files on web servers. It has a GUI interface and supports various brute-forcing methods.
+
+Installation / Check
+Check if installed:
+
+which dirbuster
+Install command:
+
+sudo apt install dirbuster
+Basic Syntax
+dirbuster (GUI application)
+Common Commands
+Command	What it does	When to use	Risk
+dirbuster
+
+Launch DirBuster GUI	Starting web directory brute-forcing	
+Set Target URL in GUI
+
+Configure target website	First step after launching	
+Select wordlist: /usr/share/dirbuster/wordlists/
+
+Choose wordlist for attack	Configuring the attack dictionary	
+Set threads (10-50 recommended)
+
+Configure parallel connections	Balancing speed vs server load	
+Step-by-Step Guide
+1
+Launch DirBuster from menu or terminal
+2
+Enter target URL
+3
+Select a wordlist
+4
+Set number of threads
+5
+Click Start
+6
+Monitor progress and results
+7
+Export findings when done
+Understanding the Output
+Results show found directories and files with response codes. Tree view shows the website structure discovered.
+
+Important Warnings
+•
+GUI-based tool - requires X11 display
+•
+High thread counts can DoS the target
+•
+Only use on authorized targets
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
