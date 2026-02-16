@@ -1,0 +1,58 @@
+Feroxbuster
+Fast content discovery tool written in Rust
+
+Web Application
+Description
+Feroxbuster is a fast, recursive content discovery tool written in Rust. It is designed to perform forced browsing to find hidden directories and files on web servers.
+
+Installation / Check
+Check if installed:
+
+which feroxbuster
+Install command:
+
+sudo apt install feroxbuster
+Basic Syntax
+feroxbuster -u <url>
+Common Commands
+Command	What it does	When to use	Risk
+feroxbuster -u http://target.com
+
+Basic scan	Find hidden dirs	
+feroxbuster -u http://target.com -w /usr/share/wordlists/dirb/common.txt
+
+Custom wordlist	Specific wordlist	
+feroxbuster -u http://target.com -x php,html,txt
+
+With extensions	Find specific files	
+feroxbuster -u http://target.com --depth 3
+
+Recursive depth	Deep discovery	
+feroxbuster -u http://target.com -t 50
+
+Set threads	Faster scanning	
+feroxbuster -u http://target.com --filter-status 404
+
+Filter status codes	Clean output	
+Step-by-Step Guide
+1
+Set target URL
+2
+Choose wordlist
+3
+Add file extensions
+4
+Run feroxbuster
+5
+Review discovered paths
+Understanding the Output
+Shows status codes, content length, and discovered URLs.
+
+Important Warnings
+•
+Can generate heavy traffic
+•
+May trigger WAF/IDS
+•
+Use on authorized targets only
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
