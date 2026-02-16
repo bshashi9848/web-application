@@ -1,0 +1,50 @@
+wafw00f
+Web Application Firewall detection tool
+
+Web Application
+Description
+wafw00f identifies and fingerprints Web Application Firewalls (WAFs). It detects over 100 WAF products and helps plan bypass strategies.
+
+Installation / Check
+Check if installed:
+
+which wafw00f
+Install command:
+
+sudo apt install wafw00f
+Basic Syntax
+wafw00f <url>
+Common Commands
+Command	What it does	When to use	Risk
+wafw00f http://target.com
+
+Detect WAF	Check for WAF presence	
+wafw00f http://target.com -a
+
+Test all WAFs	Thorough detection	
+wafw00f http://target.com -v
+
+Verbose output	Detailed results	
+wafw00f -l
+
+List supported WAFs	See detectable WAFs	
+Step-by-Step Guide
+1
+Run wafw00f against target
+2
+Note detected WAF type
+3
+Research WAF bypass techniques
+4
+Adjust attack payloads accordingly
+Understanding the Output
+Shows detected WAF product name and version if identifiable.
+
+Important Warnings
+•
+WAF detection is usually safe
+•
+Helps plan further testing
+•
+Some WAFs may block repeated probes
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
