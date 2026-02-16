@@ -1,0 +1,51 @@
+Commix
+Automated command injection exploitation tool
+
+Web Application
+Description
+Commix (Command Injection Exploiter) is an automated tool for testing and exploiting command injection vulnerabilities in web applications.
+
+Installation / Check
+Check if installed:
+
+which commix
+Install command:
+
+sudo apt install commix
+Basic Syntax
+commix -u "<URL>"
+Common Commands
+Command	What it does	When to use	Risk
+commix -u "http://target.com/page?cmd=test"
+
+Basic test	Test for command injection	
+commix -u "http://target.com/page?cmd=test" --os-cmd=whoami
+
+Execute command	Run system command	
+commix -u "http://target.com/page?cmd=test" --all
+
+All techniques	Try all injection methods	
+Step-by-Step Guide
+1
+Identify potential injection point
+2
+Run commix with URL
+3
+Review if vulnerable
+4
+If exploitable, get shell access
+5
+Document findings
+Understanding the Output
+Shows if parameter is injectable. Provides shell access if successful.
+
+Important Warnings
+•
+Command injection is severe
+•
+Can lead to full system access
+•
+Only test authorized targets
+•
+Highly illegal without permission
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
