@@ -1,0 +1,52 @@
+XSStrike
+Advanced XSS detection and exploitation suite
+
+Web Application
+Description
+XSStrike is the most advanced XSS detection suite. It has intelligent payload generation, WAF detection & bypass, and a powerful fuzzing engine.
+
+Installation / Check
+Check if installed:
+
+which xsstrike
+Install command:
+
+pip install xsstrike
+Basic Syntax
+xsstrike -u <url>
+Common Commands
+Command	What it does	When to use	Risk
+xsstrike -u "http://target.com/page?q=test"
+
+Basic XSS scan	Test for XSS	
+xsstrike -u "http://target.com/page?q=test" --crawl
+
+Crawl and test	Full site XSS scan	
+xsstrike -u "http://target.com/page?q=test" --fuzzer
+
+Fuzzing mode	Find WAF bypass	
+xsstrike -u "http://target.com/page?q=test" --blind
+
+Blind XSS test	Test blind XSS	
+Step-by-Step Guide
+1
+Find input parameter
+2
+Run XSStrike basic scan
+3
+Use --crawl for full coverage
+4
+Review found vulnerabilities
+5
+Test payloads manually
+Understanding the Output
+Shows reflected parameters, working payloads, and confidence levels.
+
+Important Warnings
+•
+Only test authorized websites
+•
+XSS can steal user data
+•
+Report findings responsibly
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
