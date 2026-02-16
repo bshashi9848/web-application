@@ -1,0 +1,109 @@
+Gobuster
+Directory and file brute-forcing tool
+
+Web Application
+Description
+Gobuster is a tool used to brute-force URIs (directories and files) in websites and DNS subdomains. It's fast and supports multiple modes for different types of enumeration.
+
+Installation / Check
+Check if installed:
+
+which gobuster
+Install command:
+
+sudo apt install gobuster
+Basic Syntax
+gobuster dir -u <URL> -w <wordlist>
+Common Commands
+Command	What it does	When to use	Risk
+gobuster dir -u http://192.168.1.1 -w /usr/share/wordlists/dirb/common.txt
+
+Directory scan - Find hidden dirs	Web enumeration	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -x php,html,txt
+
+File extensions - Find specific files	File discovery	
+gobuster dns -d target.com -w subdomains.txt
+
+Subdomain enum - Find subdomains	DNS recon	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -o results.txt
+
+Save output - Write results	Documentation	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -t 50
+
+Fast scan - 50 threads	Speed up scanning	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -s "200,204,301,302,307,401"
+
+Status codes - Show specific codes	Filter results	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -b "403,404"
+
+Blacklist codes - Hide specific codes	Clean output	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -r
+
+Follow redirects - Follow 301/302	Find final location	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -k
+
+Skip SSL verify - Ignore cert errors	Self-signed certs	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -c "PHPSESSID=abc123"
+
+With cookie - Authenticated scan	Post-login scanning	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -H "Authorization: Bearer token"
+
+Custom header - API auth	API testing	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -a "Mozilla/5.0"
+
+Custom User-Agent - Avoid detection	Stealth scanning	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -p http://127.0.0.1:8080
+
+Through proxy - Route via Burp	Traffic analysis	
+gobuster vhost -u http://192.168.1.1 -w vhosts.txt
+
+Virtual host enum - Find vhosts	Multi-site servers	
+gobuster dns -d target.com -w subdomains.txt -i
+
+Show IP - Display resolved IPs	DNS mapping	
+gobuster dns -d target.com -w subdomains.txt --wildcard
+
+Wildcard detection - Handle wildcards	Wildcard DNS	
+gobuster fuzz -u http://192.168.1.1/FUZZ -w wordlist.txt
+
+Fuzz mode - Parameter fuzzing	Parameter discovery	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt --no-error
+
+Suppress errors - Clean output	Production scans	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -n
+
+No status - Skip status display	Script output	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -e
+
+Expanded mode - Full URL output	Direct URL testing	
+gobuster dir -u http://192.168.1.1 -w wordlist.txt -U admin -P password
+
+Basic auth - HTTP authentication	Protected directories	
+Step-by-Step Guide
+1
+Identify target web application URL
+2
+Choose appropriate wordlist (common.txt for quick scan)
+3
+Run gobuster: gobuster dir -u <url> -w <wordlist>
+4
+Watch for Status 200 (found) and 301/302 (redirects)
+5
+Investigate interesting paths manually
+6
+Try with -x flag for specific file extensions
+7
+Save results: -o output.txt
+Understanding the Output
+Gobuster shows: /path (Status: 200) [Size: 1234]. Status 200 = exists, 301/302 = redirect, 403 = forbidden (exists but no access), 404 = not found.
+
+Important Warnings
+•
+Directory brute forcing is noisy and easily logged
+•
+Only scan websites you have permission to test
+•
+High thread counts can overwhelm small servers
+•
+Some WAFs may block or rate-limit your requests
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
