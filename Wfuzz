@@ -1,0 +1,52 @@
+Wfuzz
+Web application fuzzer for finding hidden content
+
+Web Application
+Description
+Wfuzz is a flexible web fuzzer used to brute force web application parameters, discover hidden directories, files, and test for various vulnerabilities.
+
+Installation / Check
+Check if installed:
+
+which wfuzz
+Install command:
+
+sudo apt install wfuzz
+Basic Syntax
+wfuzz -w <wordlist> <URL/FUZZ>
+Common Commands
+Command	What it does	When to use	Risk
+wfuzz -w /usr/share/wordlists/dirb/common.txt http://target.com/FUZZ
+
+Directory bruteforce	Find hidden directories	
+wfuzz -w wordlist.txt -d "user=FUZZ&pass=test" http://target.com/login
+
+POST parameter fuzzing	Test login parameters	
+wfuzz -w wordlist.txt --hc 404 http://target.com/FUZZ
+
+Hide 404 responses	Filter out not found pages	
+wfuzz -w wordlist.txt -H "Cookie: session=FUZZ" http://target.com/
+
+Header fuzzing	Test header values	
+Step-by-Step Guide
+1
+Choose appropriate wordlist
+2
+Replace fuzz point with FUZZ keyword
+3
+Run wfuzz with options
+4
+Filter unwanted responses with --hc/--hl/--hw
+5
+Analyze interesting responses
+Understanding the Output
+Shows response code, lines, words, chars for each payload. Use filters to focus on valid responses.
+
+Important Warnings
+•
+High request volume can trigger WAF
+•
+Use rate limiting with -t option
+•
+Only test authorized targets
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
