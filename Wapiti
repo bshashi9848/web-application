@@ -1,0 +1,54 @@
+Wapiti
+Web application vulnerability scanner
+
+Web Application
+Description
+Wapiti allows you to audit the security of your websites or web applications. It performs black-box scanning by crawling pages and injecting payloads.
+
+Installation / Check
+Check if installed:
+
+which wapiti
+Install command:
+
+sudo apt install wapiti
+Basic Syntax
+wapiti -u <URL>
+Common Commands
+Command	What it does	When to use	Risk
+wapiti -u http://target.com
+
+Full scan	Complete web app audit	
+wapiti -u http://target.com -m sql
+
+SQL injection only	Test SQLi specifically	
+wapiti -u http://target.com -m xss
+
+XSS testing	Test for XSS	
+wapiti -u http://target.com -o report
+
+Generate report	Save findings	
+Step-by-Step Guide
+1
+Start with target URL
+2
+Let wapiti crawl the site
+3
+Review discovered forms/parameters
+4
+Wait for injection tests
+5
+Review generated report
+Understanding the Output
+Shows discovered vulnerabilities by category. Report includes affected URLs and payloads.
+
+Important Warnings
+•
+Active injection testing
+•
+Can cause application errors
+•
+May trigger WAF alerts
+•
+Use only on authorized apps
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
