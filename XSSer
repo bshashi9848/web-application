@@ -1,0 +1,49 @@
+XSSer
+Automatic XSS vulnerability detection framework
+
+Web Application
+Description
+XSSer is an automatic framework to detect, exploit and report XSS vulnerabilities in web applications.
+
+Installation / Check
+Check if installed:
+
+which xsser
+Install command:
+
+sudo apt install xsser
+Basic Syntax
+xsser -u "<URL>"
+Common Commands
+Command	What it does	When to use	Risk
+xsser -u "http://target.com/search?q=test"
+
+Basic XSS test	Test for reflected XSS	
+xsser -u "http://target.com/search?q=test" --auto
+
+Auto mode	Automatic payload selection	
+xsser -u "http://target.com/search?q=test" --Fp "<script>alert(1)</script>"
+
+Custom payload	Test specific payload	
+Step-by-Step Guide
+1
+Find input parameters
+2
+Run xsser against target
+3
+Review injection results
+4
+Test successful payloads manually
+5
+Document XSS findings
+Understanding the Output
+Shows tested payloads and successful injections. Color-coded results.
+
+Important Warnings
+•
+XSS can steal user sessions
+•
+Test only on authorized apps
+•
+Some payloads may be blocked by WAF
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
