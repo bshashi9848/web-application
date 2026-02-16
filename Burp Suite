@@ -1,0 +1,61 @@
+Burp Suite
+Integrated platform for web application security testing
+
+Web Application
+Description
+Burp Suite is a comprehensive web application security testing platform. It can intercept HTTP/HTTPS traffic, spider websites, scan for vulnerabilities, and includes tools for manual testing like Repeater and Intruder.
+
+Installation / Check
+Check if installed:
+
+which burpsuite
+Install command:
+
+sudo apt install burpsuite
+Basic Syntax
+burpsuite (GUI application)
+Common Commands
+Command	What it does	When to use	Risk
+burpsuite
+
+Launch Burp Suite - Opens the GUI application	To start web application testing	
+Configure browser proxy: 127.0.0.1:8080
+
+Setup proxy - Route browser traffic through Burp	First step to intercept web traffic	
+Proxy > Intercept > Intercept is on
+
+Enable interception - Capture HTTP requests	When you want to modify requests before they're sent	
+Right-click request > Send to Repeater
+
+Use Repeater - Manually modify and resend requests	For testing specific request modifications	
+Right-click request > Send to Intruder
+
+Use Intruder - Automated payload testing	For fuzzing parameters or brute forcing	
+Step-by-Step Guide
+1
+Launch Burp Suite from terminal or menu
+2
+Configure browser to use proxy 127.0.0.1:8080
+3
+Install Burp CA certificate in browser for HTTPS
+4
+Browse target website - traffic appears in Proxy > HTTP history
+5
+Identify interesting requests to analyze
+6
+Send requests to Repeater for manual testing
+7
+Use Scanner (Pro only) for automated vulnerability detection
+Understanding the Output
+Burp shows HTTP requests/responses in detail. The Target tab shows site structure, Proxy shows intercepted traffic, Scanner shows vulnerabilities with severity ratings (High/Medium/Low/Info).
+
+Important Warnings
+•
+Only test websites you own or have authorization to test
+•
+Intercepting others' traffic is illegal
+•
+Be careful with Intruder - can generate many requests
+•
+Community edition has limited features
+⚠️ Use Kali Linux tools only on systems you own or have written permission to test. Unauthorized hacking is illegal and can result in criminal charges.
